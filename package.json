@@ -11,7 +11,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "dev": "concurrently \"npm start\" \"cd ../azuki-server && npm run dev\"",
     "build": "react-scripts build",
+    "postbuild": "rm -rf ../azuki-server/build && mv build ../azuki-server",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -24,5 +26,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "concurrently": "^4.1.0"
+  }
 }
