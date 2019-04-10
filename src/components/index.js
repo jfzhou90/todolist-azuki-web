@@ -1,30 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { getUser } from '../redux/actions/authActions';
+import { getUserAndLists } from '../redux/actions/authActions';
 import Login from './common/LoginPage';
+import Dashboard from './Dashboard';
 
 class App extends Component {
   componentWillMount() {
-    this.props.getUser();
+    this.props.getUserAndLists();
   }
 
   render() {
     if (this.props.auth.id) {
-      return <div>APP</div>;
+      return <Dashboard />;
     } else {
       return (
         <>
           <Login />
-          <ToastContainer autoClose={3000} hideProgressBar />
         </>
       );
     }
   }
 }
 const mapStateToProps = ({ auth }) => ({ auth });
-const mapDispatchToProps = { getUser };
+const mapDispatchToProps = { getUserAndLists };
 
 export default connect(
   mapStateToProps,

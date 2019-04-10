@@ -1,0 +1,37 @@
+@import 'theme';
+
+.header--div-container {
+  display: flex;
+  align-items: row;
+  justify-content: space-between;
+  padding: 20px;
+  background-image: linear-gradient($primary-color, $secondary-color);
+  font-family: 'Acme', sans-serif;
+  img {
+    width: 3%;
+  }
+}
+
+.header--div-menu {
+  display: inline-flex;
+  align-items: row;
+  justify-content: space-evenly;
+  color: lightblue;
+  * {
+    text-decoration: none;
+    padding: 10px;
+  }
+  a {
+    border-radius: 50px;
+    color: inherit;
+  }
+  a:hover {
+    background-image: linear-gradient($secondary-color, $primary-color);
+  }
+}
+
+.header--h1-title {
+  padding: 10px;
+  font-size: 20px;
+  color: lightblue;
+}

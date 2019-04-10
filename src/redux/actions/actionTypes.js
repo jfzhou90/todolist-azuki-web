@@ -1,3 +1,4 @@
 export const BEGIN_API_CALL = 'BEGIN_API_CALL';
 export const API_CALL_ERROR = 'API_CALL_ERROR';
 export const GET_USER_SUCCESS = 'GET_USER_SUCCESS';
+export const GET_LIST_SUCESS = 'GET_LIST_SUCESS';
