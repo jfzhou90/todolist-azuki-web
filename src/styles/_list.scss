@@ -1,0 +1,81 @@
+@import 'theme';
+
+.bm-menu {
+  background: $light-color;
+  border-right: 1px solid $primary-color;
+}
+
+.menu--div-addList {
+  background: $third-red;
+  padding: 10px 0 10px 10px;
+  form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  input {
+    border-radius: 50px;
+    width: 80%;
+    text-align: center;
+  }
+  button {
+    margin-left: 10px;
+    background: inherit;
+    border: none;
+    color: $light-color;
+    font-size: 0.9em;
+  }
+  button:hover {
+    cursor: pointer;
+  }
+}
+
+.menu--div-listContainer {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  overflow: 'auto';
+  font-family: 'Varela Round', sans-serif;
+  a {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 8px 0px 8px 20px;
+    text-decoration: none;
+    color: black;
+  }
+  a:hover {
+    cursor: grab;
+  }
+}
+
+.menu--div-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  button {
+    background: inherit;
+    border: none;
+  }
+  button {
+    color: $primary-color;
+    font-size: 0.9em;
+  }
+  button:hover {
+    cursor: pointer;
+  }
+}
+
+.menu--div-list:hover,
+.menu--div-list:active {
+  background-color: $light-red;
+}
+
+.bm-morph-shape {
+  display: none;
+}
+.bm-menu {
+  width: 300px !important;
+}

@@ -7,13 +7,12 @@ export const getUserAndLists = () => async dispatch => {
   return AuthApi.getUser()
     .then(data => {
       if (data) {
-        dispatch({ type: types.GET_LIST_SUCESS, data: data.list });
+        dispatch({ type: types.GET_LIST_SUCCESS, data: data.list });
       }
-      delete data.Lists;
+      delete data.list;
       dispatch({ type: types.GET_USER_SUCCESS, data });
     })
     .catch(error => {
       dispatch(apiCallError(error));
-      console.log(error);
     });
 };

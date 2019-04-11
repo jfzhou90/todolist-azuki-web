@@ -3,4 +3,5 @@ export default {
     id: undefined,
   },
   list: [],
+  todos: [],
 };

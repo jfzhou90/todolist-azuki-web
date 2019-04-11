@@ -1,5 +1,5 @@
 export const getUser = () => {
-  return fetch('/auth/currentUser').then(response => {
+  return fetch('/auth/currentUserAndList').then(response => {
     return response.ok ? response.json() : undefined;
   });
 };

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Switch, Route } from 'react-router-dom';
 import { getUserAndLists } from '../redux/actions/authActions';
 import Login from './common/LoginPage';
+import NotFound from './common/NotFound';
 import Dashboard from './Dashboard';
 
 class App extends Component {
@@ -11,12 +13,18 @@ class App extends Component {
 
   render() {
     if (this.props.auth.id) {
-      return <Dashboard />;
+      return (
+        <Switch>
+          <Route path="/*" component={Dashboard} />
+          <Route path="/404" component={NotFound} />
+        </Switch>
+      );
     } else {
       return (
-        <>
-          <Login />
-        </>
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <Route path="/*" component={NotFound} />
+        </Switch>
       );
     }
   }

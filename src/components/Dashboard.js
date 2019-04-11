@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Header from './Header';
+import Header from './common/Header';
 import { ToastContainer } from 'react-toastify';
+import ListMenu from './common/ListMenu';
+import Main from './common/Main';
 import 'react-toastify/dist/ReactToastify.css';
 
 class Dashboard extends Component {
@@ -9,6 +11,10 @@ class Dashboard extends Component {
     return (
       <>
         <Header />
+        <div id="outer-container">
+          <ListMenu />
+          <Main />
+        </div>
         <ToastContainer autoClose={3000} hideProgressBar />
       </>
     );
