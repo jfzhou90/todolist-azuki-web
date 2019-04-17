@@ -7,3 +7,8 @@ export const beginApiCall = () => {
 export const apiCallError = () => {
   return { type: types.API_CALL_ERROR };
 };
+
+// Auth Api Calls
+export const loadingUserCompleted = () => {
+  return { type: types.LOADING_USER_COMPLETE };
+};

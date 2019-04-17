@@ -1,9 +1,7 @@
 import * as types from './actionTypes';
 import * as ListApi from '../../api/listApi';
-import { beginApiCall, apiCallError } from './apiStatusActions';
 
 export const addNewList = listName => async dispatch => {
-  dispatch(beginApiCall());
   return ListApi.addNewList(listName)
     .then(data => {
       if (data) {
@@ -11,13 +9,11 @@ export const addNewList = listName => async dispatch => {
       }
     })
     .catch(error => {
-      dispatch(apiCallError(error));
       console.log(error);
     });
 };
 
 export const deleteList = id => async dispatch => {
-  dispatch(beginApiCall());
   return ListApi.deleteList(id)
     .then(data => {
       if (data) {
@@ -25,21 +21,22 @@ export const deleteList = id => async dispatch => {
       }
     })
     .catch(error => {
-      dispatch(apiCallError(error));
       console.log(error);
     });
 };
 
+export const reorderList = listArray => async dispatch => {
+  dispatch({ type: types.REORDER_LIST, data: listArray });
+};
+
 export const updateList = (id, name) => async dispatch => {
-  dispatch(beginApiCall());
-  return ListApi.updateList(id, name)
-    .then(data => {
-      if (data) {
-        dispatch({ type: types.UPDATE_LIST_SUCCESS, data });
-      }
-    })
-    .catch(error => {
-      dispatch(apiCallError(error));
-      console.log(error);
-    });
+  // return ListApi.updateList(id, name)
+  //   .then(data => {
+  //     if (data) {
+  //       dispatch({ type: types.UPDATE_LIST_SUCCESS, data });
+  //     }
+  //   })
+  //   .catch(error => {
+  //     console.log(error);
+  //   });
 };

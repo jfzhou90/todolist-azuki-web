@@ -1,16 +1,3 @@
-export const reorderLists = list => {
-  return fetch('/api/list/reorderList', {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(list),
-  }).then(response => {
-    return response.ok ? response.json() : undefined;
-  });
-};
-
 export const addNewList = listName => {
   return fetch('/api/list/createList', {
     method: 'POST',
@@ -19,6 +6,19 @@ export const addNewList = listName => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ name: listName }),
+  }).then(response => {
+    return response.ok ? response.json() : undefined;
+  });
+};
+
+export const reorderLists = list => {
+  return fetch('/api/list/reorderList', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(list),
   }).then(response => {
     return response.ok ? response.json() : undefined;
   });

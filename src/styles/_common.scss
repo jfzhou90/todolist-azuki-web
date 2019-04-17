@@ -1,0 +1,18 @@
+@import 'theme';
+
+// Loading Page
+.loading--div-container {
+  background: rgb(33, 32, 37);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loading--img-loading {
+  width: 100%;
+}
+
+.modal {
+  z-index: 2000;
+}

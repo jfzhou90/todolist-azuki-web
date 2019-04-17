@@ -1,15 +1,16 @@
-// import * as types from '../actions/actionTypes';
 import initialState from './initialState';
 import * as types from '../actions/actionTypes';
+import { formatDataStructure, addNewData } from '../../utils/dataFormat';
 
-export default function listReducer(state = initialState.list, action) {
+export default function listReducer(state = initialState.lists, action) {
   switch (action.type) {
-    case types.GET_LIST_SUCCESS:
-      return action.data.sort((a, b) => a.order - b.order);
-    case types.ADD_LIST_SUCCESS:
-      return [...state, action.data];
     case types.DELETE_LIST_SUCCESS:
-      return action.data;
+    case types.GET_LIST_SUCCESS:
+      return formatDataStructure(action.data);
+    case types.ADD_LIST_SUCCESS:
+      return addNewData(state, action.data);
+    case types.REORDER_LIST:
+      return { ...state, keyOrder: action.data };
     default:
       return state;
   }

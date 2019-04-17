@@ -1,36 +1,31 @@
+import 'react-toastify/dist/ReactToastify.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Switch, Route } from 'react-router-dom';
-import { getUserAndLists } from '../redux/actions/authActions';
-import Login from './common/LoginPage';
-import NotFound from './common/NotFound';
-import Dashboard from './Dashboard';
+import { ToastContainer } from 'react-toastify';
+import Header from './common/Header';
+import Sidebar from './Sidebar';
+import ReactModal from 'react-modal';
+import Modals from './modals';
 
+ReactModal.setAppElement('#root');
 class App extends Component {
-  componentWillMount() {
-    this.props.getUserAndLists();
-  }
-
   render() {
-    if (this.props.auth.id) {
-      return (
-        <Switch>
-          <Route path="/*" component={Dashboard} />
-          <Route path="/404" component={NotFound} />
-        </Switch>
-      );
-    } else {
-      return (
-        <Switch>
-          <Route exact path="/" component={Login} />
-          <Route path="/*" component={NotFound} />
-        </Switch>
-      );
-    }
+    console.log('App Rendered');
+    return (
+      <>
+        <Modals />
+        <Header />
+        <div id="outer-container">
+          <Sidebar />
+          <div id="page-wrap">test</div>
+        </div>
+        <ToastContainer autoClose={3000} hideProgressBar />
+      </>
+    );
   }
 }
 const mapStateToProps = ({ auth }) => ({ auth });
-const mapDispatchToProps = { getUserAndLists };
+const mapDispatchToProps = {};
 
 export default connect(
   mapStateToProps,

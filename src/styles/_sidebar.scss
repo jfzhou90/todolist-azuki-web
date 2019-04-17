@@ -1,0 +1,15 @@
+@import 'theme';
+
+.sidebar--div-addListContainer {
+  text-align: center;
+  padding: 5px;
+  background: $third-red;
+  button {
+    border: 1px solid $fifth-red;
+    border-radius: 50px;
+    padding: 5px 10px 5px 10px;
+    background: $fourth-red;
+    font-family: 'Acme', sans-serif;
+    font-size: 1rem;
+  }
+}

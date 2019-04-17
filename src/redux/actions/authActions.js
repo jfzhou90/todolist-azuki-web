@@ -1,9 +1,8 @@
 import * as types from './actionTypes';
 import * as AuthApi from '../../api/authApi';
-import { beginApiCall, apiCallError } from './apiStatusActions';
+import { loadingUserCompleted } from './apiStatusActions';
 
 export const getUserAndLists = () => async dispatch => {
-  dispatch(beginApiCall());
   return AuthApi.getUser()
     .then(data => {
       if (data) {
@@ -12,7 +11,7 @@ export const getUserAndLists = () => async dispatch => {
       delete data.list;
       dispatch({ type: types.GET_USER_SUCCESS, data });
     })
-    .catch(error => {
-      dispatch(apiCallError(error));
+    .catch(() => {
+      dispatch(loadingUserCompleted());
     });
 };

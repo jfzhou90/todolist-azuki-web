@@ -1,7 +1,16 @@
 export default {
   auth: {
-    id: undefined,
+    isLoading: true,
   },
-  list: [],
-  todos: [],
+  modals: {},
+  errors: [],
+  lists: {
+    keyOrder: [],
+    keyHash: {},
+  },
+  tasks: {
+    isLoading: undefined,
+    idByOrder: [],
+    hashObjects: {},
+  },
 };

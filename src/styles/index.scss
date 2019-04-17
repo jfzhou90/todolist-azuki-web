@@ -1,5 +1,10 @@
 @import 'node_modules/reset-css/sass/reset';
+@import 'common';
 @import 'login';
-@import 'default';
 @import 'header';
+@import 'bm';
+@import 'sidebar';
+@import 'addModal';
+@import 'deleteModal';
+@import 'dnd';
 @import 'list';

@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import auth from './auth';
-import list from './list';
-import todos from './todos';
-import { reducer as listMenu } from 'redux-burger-menu';
+import lists from './list';
+import modals from './modal';
+import { reducer as sidebar } from 'redux-burger-menu';
 
 export default combineReducers({
   auth,
-  list,
-  todos,
-  listMenu,
+  sidebar,
+  modals,
+  lists,
 });
