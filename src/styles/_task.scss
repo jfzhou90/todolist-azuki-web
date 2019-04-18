@@ -1,0 +1,9 @@
+.task--div-container {
+  width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 500px) {
+    width: 100%;
+  }
+}

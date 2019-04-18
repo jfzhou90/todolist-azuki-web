@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import TitleBar from './TitleBar';
+import { action as toggleMenu } from 'redux-burger-menu';
 import { updateVisibility } from '../../redux/actions/visibilityActions';
+import TitleBar from './TitleBar';
+import TaskDraggableContainer from '../Task/TaskDraggableContainer';
 
 class TaskContainer extends Component {
   shouldComponentUpdate(nextProps) {
@@ -12,6 +14,10 @@ class TaskContainer extends Component {
         this.props.lists.keyHash[this.props.match.params.id].name ||
       nextProps.visibility !== this.props.visibility
     );
+  }
+
+  componentDidUpdate() {
+    this.props.toggleMenu(false);
   }
 
   render() {
@@ -25,6 +31,7 @@ class TaskContainer extends Component {
           visibility={this.props.visibility}
           onUpdate={visibility => this.props.updateVisibility(visibility)}
         />
+        <TaskDraggableContainer />
       </div>
     );
   }
@@ -37,6 +44,7 @@ const mapStateToProps = ({ visibility, lists }) => ({
 
 const mapDispatchToProps = {
   updateVisibility,
+  toggleMenu,
 };
 
 export default connect(

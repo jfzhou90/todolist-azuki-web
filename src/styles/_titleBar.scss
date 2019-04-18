@@ -22,12 +22,15 @@
 .titlebar--div-buttongroup {
   position: fixed;
   bottom: 5%;
-  right: 10%;
+  right: 15%;
   display: inline-flex;
   justify-content: space-between;
   button {
     width: 6rem;
     padding: 2px;
+  }
+  @media (max-width: 500px) {
+    bottom: 2%;
   }
 }
 

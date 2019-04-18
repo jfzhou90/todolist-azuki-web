@@ -2,7 +2,7 @@ import React from 'react';
 
 export default props => (
   <div className="titlebar--div-container">
-    <span className="titlebar--div-listname">{props.name}</span>
+    <strong className="titlebar--div-listname">{props.name}</strong>
     <div className="titlebar--div-buttongroup">
       <button
         type="button"
