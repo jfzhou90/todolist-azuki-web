@@ -2,6 +2,7 @@ export default {
   auth: {
     isLoading: true,
   },
+  socket: null,
   modals: {},
   errors: [],
   lists: {
@@ -9,8 +10,8 @@ export default {
     keyHash: {},
   },
   tasks: {
-    isLoading: undefined,
-    idByOrder: [],
-    hashObjects: {},
+    isLoading: true,
+    keyOrder: [],
+    keyHash: {},
   },
 };

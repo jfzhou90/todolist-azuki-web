@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import ReactModal from 'react-modal';
 import { connect } from 'react-redux';
 import { closeModal } from '../../redux/actions/modalActions';
-import { addNewList } from '../../redux/actions/listActions';
 import { toast } from 'react-toastify';
 
 const customStyles = {
@@ -39,7 +38,7 @@ class DeleteItemModal extends PureComponent {
   }
 }
 
-const mapDispatchToProps = { closeModal, addNewList };
+const mapDispatchToProps = { closeModal };
 
 export default connect(
   null,

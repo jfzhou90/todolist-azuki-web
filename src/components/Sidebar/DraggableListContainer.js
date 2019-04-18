@@ -3,12 +3,17 @@ import { connect } from 'react-redux';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import List from './List';
 import { openModal } from '../../redux/actions/modalActions';
-import { reorderList } from '../../redux/actions/listActions';
+import { reorderList, getList } from '../../redux/actions/listActions';
 import * as ListApi from '../../api/listApi';
 import { reorder } from '../../utils/draggable';
 import debounce from 'lodash.debounce';
 
 class DraggableListContainer extends Component {
+  componentDidMount() {
+    if (this.props.socket) {
+      this.props.socket.on('list', () => this.props.getList());
+    }
+  }
   shouldComponentUpdate(nextProps) {
     return nextProps.lists !== this.props.lists;
   }
@@ -21,15 +26,16 @@ class DraggableListContainer extends Component {
   };
 
   _reorderList = debounce(lists => {
-    ListApi.reorderLists(lists);
+    ListApi.reorderLists(lists, this.props.socket);
   }, 2000);
 
-  deleteList = id => {
-    this.props.openModal('deleteListModal', id);
+  deleteList = item => {
+    this.props.openModal('deleteListModal', item);
   };
 
   editList = item => {
     console.log('edit list ' + item.id);
+    this.props.openModal('editListModal', item);
   };
 
   render() {
@@ -70,13 +76,15 @@ class DraggableListContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ lists }) => ({
+const mapStateToProps = ({ lists, socket }) => ({
   lists,
+  socket,
 });
 
 const mapDispatchToProps = {
   openModal,
   reorderList,
+  getList,
 };
 
 export default connect(

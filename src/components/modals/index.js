@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import AddListModal from './AddList';
 import DeleteItemModal from './DeleteItem';
+import EditListModal from './EditList';
 import { connect } from 'react-redux';
 import { closeModal } from '../../redux/actions/modalActions';
-import { deleteList } from '../../redux/actions/listActions';
+import { deleteList, updateList } from '../../redux/actions/listActions';
 
 class Modals extends Component {
   shouldComponentUpdate(nextProps) {
@@ -24,7 +25,18 @@ class Modals extends Component {
           isOpen={true}
           closeModal={this.closeModal}
           data={this.props.modals.data.name}
-          onDelete={() => this.props.deleteList(this.props.modals.data.id)}
+          onDelete={() => this.props.deleteList(this.props.modals.data.id, this.props.socket)}
+        />
+      );
+    } else if (this.props.modals.editListModal) {
+      return (
+        <EditListModal
+          isOpen={true}
+          closeModal={this.closeModal}
+          data={this.props.modals.data.name}
+          onEdit={newName =>
+            this.props.updateList(this.props.modals.data.id, newName, this.props.socket)
+          }
         />
       );
     } else {
@@ -33,8 +45,8 @@ class Modals extends Component {
   }
 }
 
-const mapStateToProps = ({ modals, lists }) => ({ modals, lists });
-const mapDispatchToProps = { closeModal, deleteList };
+const mapStateToProps = ({ modals, lists, socket }) => ({ modals, lists, socket });
+const mapDispatchToProps = { closeModal, deleteList, updateList };
 
 export default connect(
   mapStateToProps,

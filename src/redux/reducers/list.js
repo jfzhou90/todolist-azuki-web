@@ -4,6 +4,7 @@ import { formatDataStructure, addNewData } from '../../utils/dataFormat';
 
 export default function listReducer(state = initialState.lists, action) {
   switch (action.type) {
+    case types.UPDATE_LIST_SUCCESS:
     case types.DELETE_LIST_SUCCESS:
     case types.GET_LIST_SUCCESS:
       return formatDataStructure(action.data);

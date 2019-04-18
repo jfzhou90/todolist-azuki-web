@@ -11,7 +11,7 @@ export const addNewList = listName => {
   });
 };
 
-export const reorderLists = list => {
+export const reorderLists = (list, socket) => {
   return fetch('/api/list/reorderList', {
     method: 'POST',
     headers: {
@@ -20,6 +20,9 @@ export const reorderLists = list => {
     },
     body: JSON.stringify(list),
   }).then(response => {
+    if (socket) {
+      socket.emit('updating', 'list');
+    }
     return response.ok ? response.json() : undefined;
   });
 };
@@ -44,7 +47,7 @@ export const updateList = (id, name) => {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ id: id, name: name }),
+    body: JSON.stringify({ id, name }),
   }).then(response => {
     return response.ok ? response.json() : undefined;
   });

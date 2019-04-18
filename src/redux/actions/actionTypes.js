@@ -6,6 +6,7 @@ export const API_CALL_ERROR = 'API_CALL_ERROR';
 export const BEGIN_LOADING_USER = 'BEGIN_LOADING_USER';
 export const LOADING_USER_COMPLETE = 'LOADING_USER_COMPLETE';
 export const GET_USER_SUCCESS = 'GET_USER_SUCCESS';
+export const ADD_SOCKET = 'ADD_SOCKET';
 
 //Modals
 export const OPEN_MODAL = 'OPEN_MODAL';

@@ -6,6 +6,7 @@ import Header from './common/Header';
 import Sidebar from './Sidebar';
 import ReactModal from 'react-modal';
 import Modals from './modals';
+import Main from './Main';
 
 ReactModal.setAppElement('#root');
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
         <Header />
         <div id="outer-container">
           <Sidebar />
-          <div id="page-wrap">test</div>
+          <Main />
         </div>
         <ToastContainer autoClose={3000} hideProgressBar />
       </>
