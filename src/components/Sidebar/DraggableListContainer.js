@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import List from './List';
 import { openModal } from '../../redux/actions/modalActions';
+import { action as toggleMenu } from 'redux-burger-menu';
 import { reorderList, getList } from '../../redux/actions/listActions';
+import { updateVisibility } from '../../redux/actions/visibilityActions';
 import * as ListApi from '../../api/listApi';
 import { reorder } from '../../utils/draggable';
 import debounce from 'lodash.debounce';
@@ -38,6 +40,11 @@ class DraggableListContainer extends Component {
     this.props.openModal('editListModal', item);
   };
 
+  toggleMenu = () => {
+    this.props.toggleMenu(!this.props.sidebar.isOpen);
+    this.props.updateVisibility('active');
+  };
+
   render() {
     return (
       <div>
@@ -59,6 +66,7 @@ class DraggableListContainer extends Component {
                       >
                         <List
                           item={this.props.lists.keyHash[key]}
+                          onClick={() => this.toggleMenu()}
                           onDelete={() => this.deleteList(this.props.lists.keyHash[key])}
                           onEdit={() => this.editList(this.props.lists.keyHash[key])}
                         />
@@ -76,15 +84,18 @@ class DraggableListContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ lists, socket }) => ({
+const mapStateToProps = ({ lists, socket, sidebar }) => ({
   lists,
   socket,
+  sidebar,
 });
 
 const mapDispatchToProps = {
   openModal,
   reorderList,
   getList,
+  toggleMenu,
+  updateVisibility,
 };
 
 export default connect(

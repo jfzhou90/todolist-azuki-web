@@ -3,6 +3,7 @@ import auth from './auth';
 import lists from './list';
 import modals from './modal';
 import socket from './socket';
+import visibility from './visibility';
 import { reducer as sidebar } from 'redux-burger-menu';
 
 export default combineReducers({
@@ -11,4 +12,5 @@ export default combineReducers({
   modals,
   lists,
   socket,
+  visibility,
 });

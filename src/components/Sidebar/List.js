@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default props => (
   <div className="list--div-container">
-    <Link to={`/list/${props.item.id}`}>
+    <Link to={`/list/${props.item.id}`} onClick={() => props.onClick()}>
       <span className="list--span-name">{props.item.name}</span>
     </Link>
     <div className="list--div-buttonContainer">

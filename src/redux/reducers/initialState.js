@@ -14,4 +14,5 @@ export default {
     keyOrder: [],
     keyHash: {},
   },
+  visibility: 'active',
 };

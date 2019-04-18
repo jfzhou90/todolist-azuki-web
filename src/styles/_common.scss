@@ -16,3 +16,9 @@
 .modal {
   z-index: 2000;
 }
+
+.task--div-full-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+}

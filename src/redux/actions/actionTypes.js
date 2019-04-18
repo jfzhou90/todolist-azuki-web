@@ -21,3 +21,6 @@ export const DELETE_LIST_SUCCESS = 'DELETE_LIST_SUCCESS';
 
 //Todos
 export const GET_TODOS_SUCCESS = 'GET_TODOS_SUCCESS';
+
+//Visibility
+export const UPDATE_VISIBILITY = 'UPDATE_VISIBILITY';
