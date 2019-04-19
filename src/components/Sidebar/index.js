@@ -10,9 +10,9 @@ class Sidebar extends PureComponent {
     this.props.openModal('addModal');
   };
 
-  shouldComponentUpdate(nextProps) {
-    return nextProps.sidebar.isOpen !== this.props.sidebar.isOpen;
-  }
+  // shouldComponentUpdate(nextProps) {
+  //   return nextProps.sidebar.isOpen !== this.props.sidebar.isOpen;
+  // }
 
   render() {
     console.log('Sidebar Rendered');

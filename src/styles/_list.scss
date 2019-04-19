@@ -13,15 +13,29 @@
   }
 }
 
-.list--span-name {
-  padding: 10px;
-  font-family: arial;
-}
-
 .list--div-container:focus,
 .list--div-container:hover,
 .list--div-container:active {
   background: $fourth-red;
+}
+
+.list--div-container-selected {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1.3rem;
+  background: lightcoral;
+  a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    width: 65%;
+  }
+}
+
+.list--span-name {
+  padding: 10px;
+  font-family: arial;
 }
 
 .list--div-buttonContainer {

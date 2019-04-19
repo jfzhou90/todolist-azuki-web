@@ -12,3 +12,20 @@ export const addNewData = (state, newData) => {
   newState.keyHash[newData.id] = newData;
   return newState;
 };
+
+export const formatTaskStructure = data => {
+  const activeTasks = data
+    .filter(task => !task.isCompleted)
+    .sort((a, b) => a.order - b.order)
+    .map(item => item.id);
+
+  const completedTasks = data
+    .filter(task => task.isCompleted)
+    .sort((a, b) => a.order - b.order)
+    .map(item => item.id);
+
+  const keyHash = {};
+  data.forEach(item => (keyHash[item.id] = item));
+
+  return { activeTasks, completedTasks, keyHash };
+};

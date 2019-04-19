@@ -1,3 +1,15 @@
 .Droppable--div-listContainer {
   height: 85vh;
 }
+
+.Droppable--div-tasksContainer {
+  width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  min-height: 85vh;
+  @media (max-width: 500px) {
+    width: 100%;
+  }
+}

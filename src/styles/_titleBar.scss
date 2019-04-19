@@ -3,7 +3,7 @@
 .titlebar--div-container {
   width: 800px;
   display: inline-flex;
-  justify-content: space-between;
+  justify-content: center;
   margin: auto;
   @media (max-width: 500px) {
     width: 100%;
@@ -11,23 +11,12 @@
   }
 }
 
-.titlebar--div-listname {
-  font-size: 2rem;
-  padding: 10px 5px 10px 5px;
-  @media (max-width: 500px) {
-    font-size: 1.2rem;
-  }
-}
-
 .titlebar--div-buttongroup {
-  position: fixed;
-  bottom: 5%;
-  right: 15%;
   display: inline-flex;
   justify-content: space-between;
   button {
     width: 6rem;
-    padding: 2px;
+    padding: 10px;
   }
   @media (max-width: 500px) {
     bottom: 2%;

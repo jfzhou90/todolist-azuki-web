@@ -10,8 +10,7 @@ class TaskContainer extends Component {
   shouldComponentUpdate(nextProps) {
     return (
       !nextProps.lists.keyHash[nextProps.match.params.id] ||
-      nextProps.lists.keyHash[nextProps.match.params.id].name !==
-        this.props.lists.keyHash[this.props.match.params.id].name ||
+      nextProps.match.params.id !== this.props.match.params.id ||
       nextProps.visibility !== this.props.visibility
     );
   }
@@ -31,7 +30,7 @@ class TaskContainer extends Component {
           visibility={this.props.visibility}
           onUpdate={visibility => this.props.updateVisibility(visibility)}
         />
-        <TaskDraggableContainer />
+        <TaskDraggableContainer listId={this.props.match.params.id} />
       </div>
     );
   }

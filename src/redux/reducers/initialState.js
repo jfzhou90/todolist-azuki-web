@@ -10,8 +10,8 @@ export default {
     keyHash: {},
   },
   tasks: {
-    isLoading: true,
-    keyOrder: [],
+    activeTasks: [],
+    completedTasks: [],
     keyHash: {},
   },
   visibility: 'active',

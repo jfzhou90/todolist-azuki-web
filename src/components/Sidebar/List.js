@@ -2,7 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default props => (
-  <div className="list--div-container">
+  <div
+    className={
+      props.location === props.item.id ? 'list--div-container-selected' : 'list--div-container'
+    }
+  >
     <Link to={`/list/${props.item.id}`}>
       <span className="list--span-name">{props.item.name}</span>
     </Link>
