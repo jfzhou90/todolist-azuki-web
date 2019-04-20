@@ -62,3 +62,14 @@ export const getList = () => async dispatch => {
       console.log(error);
     });
 };
+
+export const clearCompletedTasks = (listId, socket) => async dispatch => {
+  return ListApi.clearCompletedTasks(listId).then(data => {
+    if (data) {
+      dispatch({ type: types.CLEAR_TASKS_SUCCESS, data });
+      if (socket) {
+        socket.emit('updating', 'tasks');
+      }
+    }
+  });
+};

@@ -10,21 +10,31 @@ import { reorder } from '../../utils/draggable';
 import debounce from 'lodash.debounce';
 
 class DraggableListContainer extends Component {
-  state = { location: '' };
+  state = { location: null };
   componentDidMount() {
     if (this.props.socket) {
       this.props.socket.on('list', () => this.props.getList());
     }
   }
-  shouldComponentUpdate(nextProps) {
-    return (
-      nextProps.lists !== this.props.lists ||
-      window.location.href.split('/').pop() !== this.state.location
-    );
+
+  componentWillUnmount() {
+    if (this.props.socket) {
+      this.props.socket.off('list');
+    }
   }
 
+  // shouldComponentUpdate(nextProps) {
+  //   console.table('next', nextProps.lists.keyHash);
+  //   console.table('this', this.props.lists.keyHash);
+  //   return !isEqual(nextProps.lists, this.props.lists);
+  //   // window.location.href.split('/').pop() !== this.state.location
+  // }
+
   componentDidUpdate() {
-    this.setState({ location: window.location.href.split('/').pop() });
+    const windowRef = window.location.href.split('/').pop();
+    if (this.state.location !== windowRef) {
+      this.setState({ location: windowRef });
+    }
   }
 
   updateListsOrder = result => {
@@ -47,6 +57,7 @@ class DraggableListContainer extends Component {
   };
 
   render() {
+    console.log('DraggableList rendered');
     return (
       <div>
         <DragDropContext onDragEnd={this.updateListsOrder}>

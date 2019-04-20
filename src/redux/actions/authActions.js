@@ -6,9 +6,9 @@ export const getUserAndLists = () => async dispatch => {
   return AuthApi.getUser()
     .then(data => {
       if (data) {
-        dispatch({ type: types.GET_LIST_SUCCESS, data: data.list });
+        dispatch({ type: types.GET_LIST_SUCCESS, data: data.lists });
       }
-      delete data.list;
+      delete data.lists;
       dispatch({ type: types.GET_USER_SUCCESS, data });
     })
     .catch(() => {

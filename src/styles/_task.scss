@@ -1,0 +1,51 @@
+@import 'theme';
+
+.TaskAdd--div-container {
+  border-bottom: 1px solid lightgrey;
+  margin: 20px 0px 5px 0px;
+  input {
+    padding: 5px 5px 5px 0px;
+    width: 100%;
+    border: none;
+  }
+}
+
+.TaskAdd--div-container-completed {
+  margin: 20px 0px 10px 0px;
+  button {
+    border: 1px dotted black;
+    border-radius: 50px;
+  }
+
+  :hover {
+    cursor: pointer;
+  }
+}
+
+.Task--div-container {
+  width: 100%;
+  display: inline-flex;
+  padding: 5px 0px 5px 0px;
+  border-bottom: 1px solid lightgrey;
+  input {
+    width: 5%;
+  }
+  span {
+    width: 88%;
+  }
+}
+
+.Task--div-container:active,
+.Task--div-container:hover {
+  background: $fifth-red;
+}
+
+.Task--div-editLink {
+  text-decoration: none;
+  color: black;
+  border: none;
+  background: inherit;
+  :hover {
+    cursor: pointer;
+  }
+}

@@ -15,14 +15,15 @@ class Entry extends Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    return nextProps.auth.id !== this.props.auth.id;
+    return nextProps.auth.isLoading !== this.props.auth.isLoading;
   }
 
   render() {
-    console.log('Entry Rendered');
     if (this.props.auth.isLoading) {
+      console.log('Loading Screen');
       return <Loading />;
     } else if (!this.props.auth.isLoading && this.props.auth.id) {
+      console.log('Entry Rendered');
       this.props.addSocketToApp(initializeSocket(this.props.auth.id));
       return <App />;
     } else if (!this.props.auth.isLoading && !this.props.auth.id) {

@@ -20,7 +20,7 @@ class App extends Component {
           <Sidebar />
           <Main />
         </div>
-        <ToastContainer autoClose={3000} hideProgressBar />
+        <ToastContainer autoClose={2000} hideProgressBar />
       </>
     );
   }

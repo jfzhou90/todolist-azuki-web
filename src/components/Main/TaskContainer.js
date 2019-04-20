@@ -7,6 +7,9 @@ import TitleBar from './TitleBar';
 import TaskDraggableContainer from '../Task/TaskDraggableContainer';
 
 class TaskContainer extends Component {
+  componentDidMount() {
+    this.props.toggleMenu(false);
+  }
   shouldComponentUpdate(nextProps) {
     return (
       !nextProps.lists.keyHash[nextProps.match.params.id] ||

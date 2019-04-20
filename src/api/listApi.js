@@ -7,7 +7,11 @@ export const addNewList = listName => {
     },
     body: JSON.stringify({ name: listName }),
   }).then(response => {
-    return response.ok ? response.json() : undefined;
+    if (response.ok) {
+      let data = response.json();
+      console.log(data);
+      return data;
+    }
   });
 };
 
@@ -48,6 +52,19 @@ export const updateList = (id, name) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ id, name }),
+  }).then(response => {
+    return response.ok ? response.json() : undefined;
+  });
+};
+
+export const clearCompletedTasks = ListId => {
+  return fetch(`/api/list/clearCompletedTasks`, {
+    method: 'PUT',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ ListId }),
   }).then(response => {
     return response.ok ? response.json() : undefined;
   });
