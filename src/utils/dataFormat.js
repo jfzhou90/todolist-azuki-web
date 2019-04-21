@@ -73,3 +73,16 @@ export const removeSubtask = (state, data) => {
 
   return newState;
 };
+
+export const reorderSubtasks = (state, taskId, subtaskOrder) => {
+  const newState = { ...state };
+  newState.keyHash[taskId].subtasks.keyOrder = subtaskOrder;
+
+  return newState;
+};
+
+export const toggleSubtask = (state, data) => {
+  const newState = { ...state };
+  newState.keyHash[data.taskId].subtasks.keyHash[data.id].isCompleted = data.isCompleted;
+  return newState;
+};

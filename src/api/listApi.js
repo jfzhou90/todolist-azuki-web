@@ -9,7 +9,6 @@ export const addNewList = listName => {
   }).then(response => {
     if (response.ok) {
       let data = response.json();
-      console.log(data);
       return data;
     }
   });

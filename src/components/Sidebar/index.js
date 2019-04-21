@@ -15,7 +15,6 @@ class Sidebar extends Component {
   }
 
   render() {
-    console.log('Sidebar Rendered');
     return (
       <div>
         <Menu

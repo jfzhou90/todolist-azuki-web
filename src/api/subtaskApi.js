@@ -48,3 +48,41 @@ export const deleteSubtask = id => {
     }
   });
 };
+
+export const reorderSubTasks = (subtaskArray, socket) => {
+  return fetch('/api/subtasks/reorder', {
+    method: 'PUT',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ subtaskArray }),
+  }).then(response => {
+    if (response.ok) {
+      if (socket) {
+        socket.emit('updating', 'tasks');
+      }
+    } else {
+      throw new Error('An Error occured with the API');
+    }
+  });
+};
+
+export const toggleSubTask = (id, isCompleted, socket) => {
+  return fetch('/api/subtasks/toggle', {
+    method: 'PUT',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ id, isCompleted }),
+  }).then(response => {
+    if (response.ok) {
+      if (socket) {
+        socket.emit('updating', 'tasks');
+      }
+    } else {
+      throw new Error('An Error occured with the API');
+    }
+  });
+};

@@ -6,6 +6,8 @@ import {
   updateToggle,
   addSubtask,
   removeSubtask,
+  reorderSubtasks,
+  toggleSubtask,
 } from '../../utils/dataFormat';
 
 export default function taskReducer(state = initialState.tasks, action) {
@@ -21,6 +23,10 @@ export default function taskReducer(state = initialState.tasks, action) {
       return addSubtask(state, action.data);
     case types.DELETE_SUBTASK_SUCCESS:
       return removeSubtask(state, action.data);
+    case types.REORDER_SUBTASKS_SUCCESS:
+      return reorderSubtasks(state, action.taskId, action.subtaskOrder);
+    case types.TOGGLE_SUBTASKS_SUCCESS:
+      return toggleSubtask(state, action);
     default:
       return state;
   }

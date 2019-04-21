@@ -20,10 +20,8 @@ class Entry extends Component {
 
   render() {
     if (this.props.auth.isLoading) {
-      console.log('Loading Screen');
       return <Loading />;
     } else if (!this.props.auth.isLoading && this.props.auth.id) {
-      console.log('Entry Rendered');
       this.props.addSocketToApp(initializeSocket(this.props.auth.id));
       return <App />;
     } else if (!this.props.auth.isLoading && !this.props.auth.id) {

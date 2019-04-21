@@ -79,7 +79,7 @@ class TaskDraggableContainer extends Component {
 
   clearCompletedTasks = () => {
     const confirmation = window.confirm(
-      'This will permanent clear all completed task in this list, are you sure?'
+      'This will permanently clear all completed task in this list, are you sure?'
     );
     if (confirmation) {
       this.props.clearCompletedTasks(this.props.listId, this.props.socket);
@@ -87,7 +87,6 @@ class TaskDraggableContainer extends Component {
   };
 
   render() {
-    console.log(this.props.tasks);
     return (
       <div>
         <DragDropContext onDragEnd={this.updateTasksOrder}>

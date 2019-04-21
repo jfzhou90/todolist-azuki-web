@@ -11,7 +11,6 @@ import Main from './Main';
 ReactModal.setAppElement('#root');
 class App extends Component {
   render() {
-    console.log('App Rendered');
     return (
       <>
         <Modals />

@@ -13,7 +13,6 @@ class Header extends Component {
   }
 
   render() {
-    console.log('Header Rendered');
     return (
       <div className="header--div-container">
         <div className="header--div-left">

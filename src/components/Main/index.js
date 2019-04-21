@@ -6,7 +6,6 @@ import TaskEdit from '../Task/TaskEdit';
 
 class Main extends PureComponent {
   render() {
-    console.log('Main router Rendered');
     return (
       <Switch>
         <Route exact path="/" render={() => <div>MAIN</div>} />

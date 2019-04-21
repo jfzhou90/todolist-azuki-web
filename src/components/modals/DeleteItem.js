@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 
 const customStyles = {
   overlay: { zIndex: '2000' },
-  content: { top: '43%', bottom: '40%', left: '30%', right: '30%', borderRadius: '20px' },
+  content: { top: '43%', bottom: 'auto', left: '30%', right: '30%', borderRadius: '20px' },
 };
 
 const phoneStyle = { top: '43%', bottom: 'auto', left: '10%', right: '10%', borderRadius: '20px' };
@@ -23,7 +23,7 @@ class DeleteItemModal extends PureComponent {
         isOpen={this.props.isOpen}
         onRequestClose={this.props.closeModal}
         shouldCloseOnOverlayClick={true}
-        style={window.screen.width > 500 ? customStyles : { ...customStyles, content: phoneStyle }}
+        style={window.screen.width > 700 ? customStyles : { ...customStyles, content: phoneStyle }}
       >
         <div className="deleteItem--div-container">
           <h1>Are you sure you want to delete</h1>

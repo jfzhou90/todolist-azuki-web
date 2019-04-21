@@ -50,7 +50,6 @@ class DraggableListContainer extends Component {
   };
 
   render() {
-    console.log('DraggableList rendered');
     return (
       <div>
         <DragDropContext onDragEnd={this.updateListsOrder}>

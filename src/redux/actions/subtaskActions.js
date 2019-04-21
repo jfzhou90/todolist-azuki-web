@@ -32,3 +32,11 @@ export const deleteSubtask = (id, taskId, socket) => async dispatch => {
     }
   });
 };
+
+export const reorderSubtasks = (taskId, subtaskOrder) => async dispatch => {
+  dispatch({ type: types.REORDER_SUBTASKS_SUCCESS, taskId, subtaskOrder });
+};
+
+export const toggleSubtask = (taskId, id, isCompleted) => async dispatch => {
+  dispatch({ type: types.TOGGLE_SUBTASKS_SUCCESS, taskId, id, isCompleted });
+};

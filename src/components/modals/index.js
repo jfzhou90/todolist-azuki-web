@@ -16,7 +16,6 @@ class Modals extends Component {
   };
 
   render() {
-    console.log('Modals Rendered');
     if (this.props.modals.addModal) {
       return <AddListModal isOpen={true} closeModal={this.closeModal} />;
     } else if (this.props.modals.deleteListModal) {

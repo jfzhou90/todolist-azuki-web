@@ -7,6 +7,8 @@
     padding: 5px 5px 5px 0px;
     width: 100%;
     border: none;
+    font-family: Arial;
+    font-size: 1rem;
   }
 }
 
@@ -27,11 +29,15 @@
   display: inline-flex;
   padding: 5px 0px 5px 0px;
   border-bottom: 1px solid lightgrey;
+  word-wrap: break-word;
+  margin-top: 5px;
   input {
     width: 5%;
   }
   span {
     width: 88%;
+    font-family: Arial;
+    font-size: 1rem;
   }
 }
 
