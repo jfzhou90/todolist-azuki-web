@@ -17,7 +17,7 @@ class Task extends Component {
           onChange={() => this.toggleTasks()}
         />
         <span>{this.props.item.name}</span>
-        <Link to="/" className="fas fa-edit Task--div-editLink" />
+        <Link to={`/task/edit/${this.props.item.id}`} className="fas fa-edit Task--div-editLink" />
       </div>
     );
   }

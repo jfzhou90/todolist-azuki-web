@@ -1,0 +1,45 @@
+.Edit--div-container {
+  width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 500px) {
+    width: 80%;
+  }
+}
+
+.Edit--div-top-level-edit {
+  padding: 10px;
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  :hover {
+    cursor: pointer;
+  }
+  button {
+    border: none;
+    background: inherit;
+  }
+}
+
+.Edit--input-task {
+  font-size: 1.3rem;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.Edit--input-subtask {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid grey;
+}

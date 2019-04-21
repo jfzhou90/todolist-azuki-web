@@ -1,0 +1,21 @@
+.Subtask--div-container {
+  padding: 5px 0px 5px 0px;
+  display: inline-flex;
+  border-bottom: 1px solid lightgrey;
+  form {
+    width: 95%;
+    input {
+      margin-left: 20px;
+      padding: 2px 0px 2px 0px;
+      border: none;
+      width: 90%;
+    }
+  }
+  button {
+    border: none;
+    background: inherit;
+  }
+  button:hover {
+    cursor: pointer;
+  }
+}

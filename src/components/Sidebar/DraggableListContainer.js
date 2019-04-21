@@ -23,13 +23,6 @@ class DraggableListContainer extends Component {
     }
   }
 
-  // shouldComponentUpdate(nextProps) {
-  //   console.table('next', nextProps.lists.keyHash);
-  //   console.table('this', this.props.lists.keyHash);
-  //   return !isEqual(nextProps.lists, this.props.lists);
-  //   // window.location.href.split('/').pop() !== this.state.location
-  // }
-
   componentDidUpdate() {
     const windowRef = window.location.href.split('/').pop();
     if (this.state.location !== windowRef) {

@@ -61,7 +61,12 @@ class TaskDraggableContainer extends Component {
   addNewTask = e => {
     e.preventDefault();
     const newTask = this.newTask.value;
-    if (newTask === '' || undefined || null) {
+    if (
+      newTask === '' ||
+      newTask === undefined ||
+      newTask === null ||
+      !newTask.match(/[a-zA-Z0-9]/g)
+    ) {
       return toast.warn('Nothing is entered. Please try again.');
     }
     if (newTask.length > 255) {
@@ -72,7 +77,17 @@ class TaskDraggableContainer extends Component {
     this.newTask.value = '';
   };
 
+  clearCompletedTasks = () => {
+    const confirmation = window.confirm(
+      'This will permanent clear all completed task in this list, are you sure?'
+    );
+    if (confirmation) {
+      this.props.clearCompletedTasks(this.props.listId, this.props.socket);
+    }
+  };
+
   render() {
+    console.log(this.props.tasks);
     return (
       <div>
         <DragDropContext onDragEnd={this.updateTasksOrder}>
@@ -84,9 +99,7 @@ class TaskDraggableContainer extends Component {
                 className="Droppable--div-tasksContainer"
               >
                 <TaskAdd
-                  onClear={() =>
-                    this.props.clearCompletedTasks(this.props.listId, this.props.socket)
-                  }
+                  onClear={() => this.clearCompletedTasks()}
                   onSubmit={this.addNewTask}
                   inputRef={input => (this.newTask = input)}
                   visibility={this.props.visibility}

@@ -16,7 +16,13 @@ class AddListModal extends PureComponent {
   onSubmit = async e => {
     e.preventDefault();
     const name = this.refs.addListInput.value;
-    if (name === undefined || name === null || name.length === 0 || name.length > 16) {
+    if (
+      name === undefined ||
+      name === null ||
+      name.length === 0 ||
+      name.length > 16 ||
+      !name.match(/[a-zA-Z0-9]/g)
+    ) {
       return toast.error('Must be 1-16 character long.');
     }
     await this.props.addNewList(name, this.props.socket);

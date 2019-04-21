@@ -24,10 +24,11 @@ export const reorderLists = (list, socket) => {
     },
     body: JSON.stringify(list),
   }).then(response => {
-    if (socket) {
-      socket.emit('updating', 'list');
+    if (response.ok) {
+      if (socket) {
+        socket.emit('updating', 'list');
+      }
     }
-    return response.ok ? response.json() : undefined;
   });
 };
 

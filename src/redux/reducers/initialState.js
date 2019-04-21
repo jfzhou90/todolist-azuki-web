@@ -15,4 +15,5 @@ export default {
     keyHash: {},
   },
   visibility: 'active',
+  apiStatus: { isLoading: true },
 };
