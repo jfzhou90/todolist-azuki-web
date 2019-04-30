@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect, Link, Prompt } from 'react-router-dom';
 import { beginApiCall, endApiCall } from '../../redux/actions/apiStatusActions';
 import { getTask, updateTaskTitle, deleteTask } from '../../redux/actions/taskActions';
 import { addNewSubtask } from '../../redux/actions/subtaskActions';
@@ -8,6 +8,8 @@ import Subtask from './Subtask';
 import { toast } from 'react-toastify';
 
 class TaskEdit extends Component {
+  state = { inputValue: '' };
+
   async componentDidMount() {
     this.props.beginApiCall();
     if (!this.props.tasks.keyHash[this.props.match.params.id]) {
@@ -82,6 +84,10 @@ class TaskEdit extends Component {
             Delete <i className="fas fa-trash" />
           </button>
         </div>
+        <Prompt
+          when={this.state.inputValue !== ''}
+          message="Are you sure? You have not add the new subtask yet."
+        />
         <form onSubmit={e => this.updateTaskTitle(e)}>
           <input
             className="Edit--input-task"
@@ -96,6 +102,7 @@ class TaskEdit extends Component {
             type="text"
             placeholder="Add a subtask here"
             ref="addNewSubtask"
+            onChange={e => this.setState({ inputValue: e.target.value })}
           />
         </form>
         {task.subtasks.keyOrder.map(id => (

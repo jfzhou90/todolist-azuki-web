@@ -7,10 +7,32 @@ import { toast } from 'react-toastify';
 
 const customStyles = {
   overlay: { zIndex: '2000' },
-  content: { top: '30%', bottom: 'auto', left: '30%', right: '30%', borderRadius: '20px' },
+  content: {
+    top: '30%',
+    bottom: 'auto',
+    left: '30%',
+    right: '30%',
+    borderRadius: '20px',
+  },
 };
 
-const phoneStyle = { top: '10%', bottom: 'auto', left: '10%', right: '10%', borderRadius: '20px' };
+const phoneStyle = {
+  content: {
+    border: '0',
+    borderRadius: '4px',
+    bottom: 'auto',
+    minHeight: '10rem',
+    left: '50%',
+    padding: '2rem',
+    position: 'fixed',
+    right: 'auto',
+    top: '50%',
+    transform: 'translate(-50%,-50%)',
+    minWidth: '20rem',
+    width: '80%',
+    maxWidth: '60rem',
+  },
+};
 
 class AddListModal extends PureComponent {
   onSubmit = async e => {

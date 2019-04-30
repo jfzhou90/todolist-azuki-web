@@ -26,3 +26,22 @@
 body {
   font-family: Arial;
 }
+
+.Welcome--div-container {
+  margin: auto;
+  width: 800px;
+  text-align: center;
+  @media (max-width: 600px) {
+    width: 80%;
+  }
+
+  h1 {
+    font-size: 2rem;
+    padding: 10px;
+  }
+
+  img {
+    width: 20%;
+    margin: 50px 0px 50px 0px;
+  }
+}

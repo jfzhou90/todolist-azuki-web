@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Prompt } from 'react-router-dom';
 import { getTasks, addTask, reorderTasks } from '../../redux/actions/taskActions';
 import { clearCompletedTasks } from '../../redux/actions/listActions';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
@@ -12,7 +13,7 @@ import debounce from 'lodash.debounce';
 import * as TaskApi from '../../api/taskApi';
 
 class TaskDraggableContainer extends Component {
-  state = { listId: '' };
+  state = { listId: '', inputValue: '' };
   componentDidMount() {
     this.props.getTasks(this.props.listId);
     if (this.props.socket) {
@@ -26,11 +27,12 @@ class TaskDraggableContainer extends Component {
     }
   }
 
-  shouldComponentUpdate(nextProps) {
+  shouldComponentUpdate(nextProps, nextState) {
     return (
       !isEqual(nextProps.tasks, this.props.tasks) ||
       this.props.visibility !== nextProps.visibility ||
-      nextProps.listId !== this.props.listId
+      nextProps.listId !== this.props.listId ||
+      nextState.inputValue !== this.state.inputValue
     );
   }
 
@@ -102,6 +104,11 @@ class TaskDraggableContainer extends Component {
                   onSubmit={this.addNewTask}
                   inputRef={input => (this.newTask = input)}
                   visibility={this.props.visibility}
+                  onChange={e => this.setState({ inputValue: e })}
+                />
+                <Prompt
+                  when={this.state.inputValue.length !== 0}
+                  message="Are you sure? You have not added the new task."
                 />
                 {this.visibleTasks().map((key, index) => (
                   <Draggable key={key} index={index} draggableId={key}>

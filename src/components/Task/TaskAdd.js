@@ -5,7 +5,13 @@ export default props => {
     return (
       <div className="TaskAdd--div-container">
         <form onSubmit={e => props.onSubmit(e)}>
-          <input type="text" ref={props.inputRef} placeholder="Add a new task here" />
+          <input
+            type="text"
+            ref={props.inputRef}
+            placeholder="Add a new task here"
+            defaultValue=""
+            onChange={e => props.onChange(e.target.value)}
+          />
         </form>
       </div>
     );
